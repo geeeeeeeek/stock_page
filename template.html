@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<title>python股市行情看板</title>
+<body>
+
+<div class="page">
+    <div class="banner">
+        <div class="ui stackable four column grid">
+            <div class="column">
+                <div class="ui inverted segment">
+                    <div class="">股价排行榜</div>
+                    <div class="ui inverted relaxed divided list">
+                        % for item in items["price_list"]:
+                        <div class="item">
+                            <div>
+                                <span class="banner-item-name">{{item[0]}}</span>
+                                %if float(item[3]) > 0:
+                                <span class="fr red" >{{item[1]}}</span>
+                                %else:
+                                <span class="fr green">{{item[1]}}</span>
+                                %end
+                            </div>
+                        </div>
+                        %end
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui inverted segment">
+                    <div class="">涨幅排行榜</div>
+                    <div class="ui inverted relaxed divided list">
+                        % for item in items["range_list"]:
+                        <div class="item">
+                            <div>
+                                <span class="banner-item-name">{{item[0]}}</span>
+                                <span class="fr red">{{item[3]}}%</span></div>
+                        </div>
+                        %end
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui inverted segment">
+                    <div class="">跌幅排行榜</div>
+                    <div class="ui inverted relaxed divided list">
+                        % for item in items["range_r_list"]:
+                        <div class="item">
+                            <div>
+                                <span class="banner-item-name">{{item[0]}}</span>
+                                <span class="fr green">{{item[3]}}%</span></div>
+                        </div>
+                        %end
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui inverted segment">
+                    <div class="">成交量排行榜</div>
+                    <div class="ui inverted relaxed divided list">
+                        % for item in items["volume_list"]:
+                        <div class="item">
+                            <div>
+                                <span class="banner-item-name">{{item[0]}}</span>
+                                %if float(item[3]) > 0:
+                                <span class="fr red">{{item[4]}}手</span>
+                                %else:
+                                <span class="fr green">{{item[4]}}手</span>
+                                %end
+                            </div>
+                        </div>
+                        %end
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <ul class="stock-list">
+            % for item in items["stock_list"]:
+            <li id="{{item[6]}}" onmouseover="mouseOver({{item[6]}})" data-inverted="" data-tooltip="当前价: {{item[1]}}  涨跌幅: {{item[3]}}%" data-position="top center" data-variation="large" >
+                <div class="stock-name">
+                    {{item[0]}}
+                </div>
+
+                %if float(item[3]) > 0:
+                <div class="stock-price red">
+                    {{item[1]}}
+                </div>
+                %else:
+                <div class="stock-price green">
+                    {{item[1]}}
+                </div>
+                %end
+            </li>
+            %end
+        </ul>
+    </div>
+
+</div>
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/semantic-ui/2.4.1/semantic.min.js"></script>
+<script>
+    function mouseOver(id){
+        $('#'+id)
+        .popup({
+            duration:0
+        })
+        .popup('show')
+    }
+
+    // 30秒刷新
+    setTimeout(function(){
+        window.location.reload();
+    }, 30000)
+</script>
+</body>
+</html>
