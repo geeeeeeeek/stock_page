@@ -17,11 +17,11 @@
                         % for item in items["price_list"]:
                         <div class="item">
                             <div>
-                                <span class="banner-item-name">{{item[0]}}</span>
-                                %if float(item[3]) > 0:
-                                <span class="fr red" >{{item[1]}}</span>
+                                <span class="banner-item-name">{{item[11]}}</span>
+                                %if float(item[7]) > 0:
+                                <span class="fr red" >{{item[5]}}</span>
                                 %else:
-                                <span class="fr green">{{item[1]}}</span>
+                                <span class="fr green">{{item[5]}}</span>
                                 %end
                             </div>
                         </div>
@@ -36,8 +36,8 @@
                         % for item in items["range_list"]:
                         <div class="item">
                             <div>
-                                <span class="banner-item-name">{{item[0]}}</span>
-                                <span class="fr red">{{item[3]}}%</span></div>
+                                <span class="banner-item-name">{{item[11]}}</span>
+                                <span class="fr red">{{item[8]}}%</span></div>
                         </div>
                         %end
                     </div>
@@ -50,8 +50,8 @@
                         % for item in items["range_r_list"]:
                         <div class="item">
                             <div>
-                                <span class="banner-item-name">{{item[0]}}</span>
-                                <span class="fr green">{{item[3]}}%</span></div>
+                                <span class="banner-item-name">{{item[11]}}</span>
+                                <span class="fr green">{{item[8]}}%</span></div>
                         </div>
                         %end
                     </div>
@@ -64,11 +64,11 @@
                         % for item in items["volume_list"]:
                         <div class="item">
                             <div>
-                                <span class="banner-item-name">{{item[0]}}</span>
-                                %if float(item[3]) > 0:
-                                <span class="fr red">{{item[4]}}手</span>
+                                <span class="banner-item-name">{{item[11]}}</span>
+                                %if float(item[7]) > 0:
+                                <span class="fr red">{{item[9]}}</span>
                                 %else:
-                                <span class="fr green">{{item[4]}}手</span>
+                                <span class="fr green">{{item[9]}}</span>
                                 %end
                             </div>
                         </div>
@@ -83,18 +83,18 @@
     <div class="content">
         <ul class="stock-list">
             % for item in items["stock_list"]:
-            <li id="{{item[6]}}" onmouseover="mouseOver({{item[6]}})" data-inverted="" data-tooltip="当前价: {{item[1]}}  涨跌幅: {{item[3]}}%" data-position="top center" data-variation="large" >
+            <li id="{{item[0]}}" onmouseover="mouseOver({{item[5]}})" data-inverted="" data-tooltip="当前价: {{item[5]}}  涨跌幅: {{item[8]}}%" data-position="top center" data-variation="large" >
                 <div class="stock-name">
-                    {{item[0]}}
+                    {{item[11]}}
                 </div>
 
-                %if float(item[3]) > 0:
+                %if float(item[7]) > 0:
                 <div class="stock-price red">
-                    {{item[1]}}
+                    {{item[5]}}
                 </div>
                 %else:
                 <div class="stock-price green">
-                    {{item[1]}}
+                    {{item[5]}}
                 </div>
                 %end
             </li>
@@ -116,7 +116,7 @@
 
     // 30秒刷新
     setTimeout(function(){
-        window.location.reload();
+       // window.location.reload();
     }, 30000)
 </script>
 </body>

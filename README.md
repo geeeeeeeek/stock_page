@@ -18,7 +18,5 @@ python handle_csv.py
 即可生成index.html
 
 
-#### 程序定制
 
-微信: lengqin1024
 
