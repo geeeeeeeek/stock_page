@@ -23,5 +23,9 @@ python make_html.py
 即可生成index.html
 
 
+#### 视频讲解
+
+https://youtu.be/cPr9Y3lV6Ag?si=67t4iw91VRJBLpR5
+
 
 
